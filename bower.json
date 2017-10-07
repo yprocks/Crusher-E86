@@ -1,0 +1,20 @@
+{
+  "name": "Crusher E86",
+  "description": "A 2D Space Shooter Game",
+  "main": "",
+  "authors": [
+    "Yash",
+    "Laxman",
+    "Muhammad"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "scripts/lib",
+    "test",
+    "tests"
+  ]
+}
