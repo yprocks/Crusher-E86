@@ -1,0 +1,25 @@
+{
+  "name": "crusher-e86",
+  "version": "1.0.0",
+  "description": "A 2D Space Shooter Game",
+  "main": "",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yprocks/Crusher-E86.git"
+  },
+  "author": "Red Dragons",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yprocks/Crusher-E86/issues"
+  },
+  "homepage": "https://github.com/yprocks/Crusher-E86#readme",
+  "devDependencies": {
+    "@types/easeljs": "^0.8.36",
+    "@types/preloadjs": "^0.6.32",
+    "@types/soundjs": "^0.6.27",
+    "@types/tweenjs": "^0.6.27"
+  }
+}
