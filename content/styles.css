@@ -1,0 +1,9 @@
+body:not(canvas) {
+    background: #555;
+}
+
+#crusherE86-Canvas {
+    display: block;
+    margin: 0 auto;
+    background: #fff;
+}

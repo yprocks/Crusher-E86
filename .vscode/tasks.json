@@ -9,7 +9,11 @@
         "isBackground": true,
         "problemMatcher": [
             "$tsc-watch"
-        ]
+        ],
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        }
     }],
     "command": "tsc",
     "args": ["-w", "-p", "."]
