@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Dock51';
+    src: url('../Assets/fonts/dock51-webfont.woff2') format('woff2'), url('../Assets/fonts/dock51-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body:not(canvas) {
     background: #555;
 }
