@@ -22,7 +22,7 @@ module scenes {
 
     // PUBLIC METHODS
     public Start():void {
-      this._welcomeLabel = new objects.Label("Mail Pilot", "80px", "Dock51", "#FFFF00", 230, 240, true);
+      this._welcomeLabel = new objects.Label("Crusher E86", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
       this._startButton = new objects.Button(this._textureAtlas, "startButton", 250, 340, true);
       this._ocean = new objects.Ocean(this._assetManager);
       this.Main();

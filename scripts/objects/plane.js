@@ -21,8 +21,8 @@ var objects;
         }
         // PRIVATE METHODS
         Plane.prototype._checkBounds = function () {
-            if (this.x >= 490 - this.halfWidth) {
-                this.x = 490 - this.halfWidth;
+            if (this.x >= 515 - this.halfWidth) {
+                this.x = 515 - this.halfWidth;
             }
             if (this.x <= 50) {
                 this.x = 50;
@@ -43,7 +43,7 @@ var objects;
         Plane.prototype.Update = function () {
             this.x = this.stage.mouseX;
             this._checkBounds();
-            this.bulletSpawn.x = this.x;
+            this.bulletSpawn.x = this.x - 10;
             this.bulletSpawn.y = this.y - 35;
         };
         return Plane;

@@ -31,7 +31,7 @@ var scenes;
             this._engineSound.loop = -1;
             this._plane = new objects.Plane(this._textureAtlas);
             this._ocean = new objects.Ocean(this._assetManager);
-            this._island = new objects.Island(this._textureAtlas);
+            //this._island = new objects.Island(this._textureAtlas);
             this._bulletNum = 50;
             this._bullets = new Array();
             this._bulletCounter = 0;
@@ -39,18 +39,19 @@ var scenes;
             this._clouds = new Array();
             this._lives = 5;
             this._score = 0;
-            this._livesLabel = new objects.Label("Lives: " + this._lives, "30px", "Dock51", "#FFFF00", 10, 10, false);
-            this._scoreLabel = new objects.Label("Score: " + this._score, "30px", "Dock51", "#FFFF00", 300, 10, false);
+            this._livesLabel = new objects.Label("Lives: " + this._lives, "26px", "orecrusher3d", "#FFFF00", 10, 10, false);
+            this._scoreLabel = new objects.Label("Score: " + this._score, "26px", "orecrusher3d", "#FFFF00", 300, 10, false);
             this.Main();
         };
         Play.prototype.Update = function () {
             var _this = this;
             this._plane.Update();
             this._ocean.Update();
-            this._island.Update();
-            this._checkCollision(this._island);
+            //this._island.Update();
+            //this._checkCollision(this._island);
             this._bullets.forEach(function (bullet) {
                 bullet.Update();
+                bullet._checkCollision(_this._clouds);
             });
             this._clouds.forEach(function (cloud) {
                 cloud.Update();
@@ -60,10 +61,10 @@ var scenes;
         };
         Play.prototype.Main = function () {
             this.addChild(this._ocean);
-            this.addChild(this._island);
+            //this.addChild(this._island);
             this.addChild(this._plane);
             for (var count = 0; count < this._bulletNum; count++) {
-                this._bullets[count] = new objects.Bullet(this._textureAtlas);
+                this._bullets[count] = new objects.Bullet(this._textureAtlas, this);
                 this.addChild(this._bullets[count]);
             }
             for (var count = 0; count < this._cloudNum; count++) {
@@ -82,6 +83,17 @@ var scenes;
             console.log(this._bulletCounter);
             if (this._bulletCounter >= this._bulletNum - 1) {
                 this._bulletCounter = 0;
+            }
+        };
+        Play.prototype._movement = function (event) {
+            var key = event.which || event.keyCode;
+            switch (key) {
+                case 37:
+                    break;
+                case 39:
+                    break;
+                default:
+                    break;
             }
         };
         Play.prototype._checkCollision = function (other) {
@@ -108,6 +120,8 @@ var scenes;
                         var instance = createjs.Sound.play("thunder");
                         instance.volume = 0.5;
                         this._livesLabel.text = "Lives: " + this._lives;
+                        var enemy = other;
+                        enemy.destroy();
                     }
                     other.isColliding = true;
                 }
@@ -115,6 +129,10 @@ var scenes;
             else {
                 other.isColliding = false;
             }
+        };
+        Play.prototype.UpdateScore = function (score) {
+            this._score += 100;
+            this._scoreLabel.text = "Score: " + this._score;
         };
         return Play;
     }(objects.Scene));

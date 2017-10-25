@@ -40,5 +40,12 @@ module objects {
       this._updatePosition();
       this._checkBounds();
     }
+
+    /**
+     * destroy
+     */
+    public destroy():void {
+      this._reset();
+    }
   }
 }

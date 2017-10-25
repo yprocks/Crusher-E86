@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Dock51';
-    src: url('../Assets/fonts/dock51-webfont.woff2') format('woff2'), url('../Assets/fonts/dock51-webfont.woff') format('woff');
+    font-family: 'orecrusher3d';
+    src: url('../Assets/fonts/orecrusher3d.ttf') format('ttf'), url('../Assets/fonts/orecrusher.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
 }

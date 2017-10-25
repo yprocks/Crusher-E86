@@ -46,6 +46,12 @@ var objects;
             this._updatePosition();
             this._checkBounds();
         };
+        /**
+         * destroy
+         */
+        Cloud.prototype.destroy = function () {
+            this._reset();
+        };
         return Cloud;
     }(objects.GameObject));
     objects.Cloud = Cloud;

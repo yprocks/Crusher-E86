@@ -1,13 +1,14 @@
 module objects {
   export class Bullet extends objects.GameObject {
     // PRIVATE INSTANCE VARIABLES
+    private _playScript: scenes.Play;
 
     // PUBLIC PROPERTIES
 
     // CONSTRUCTORS
-    constructor(textureAtlas: createjs.SpriteSheet) {
+    constructor(textureAtlas: createjs.SpriteSheet, playScript: scenes.Play) {
       super(textureAtlas, "bullet");
-
+      this._playScript = playScript;
       this.Start();
     }
     // PRIVATE METHODS
@@ -35,10 +36,30 @@ module objects {
     }
 
     public Update(): void {
-      if(this.y > 0) {
+      if (this.y > 0) {
         this._updatePosition();
         this._checkBounds();
       }
+    }
+
+    public _checkCollision(enemies: objects.Cloud[]) {
+
+      enemies.forEach(enemy => {
+        let P1: createjs.Point = new createjs.Point(this.x, this.y);
+        let P2: createjs.Point = enemy.position;
+
+        if ((Math.sqrt(Math.pow(P2.x - P1.x, 2) + Math.pow(P2.y - P1.y, 2))) <
+          (this.halfHeight + enemy.halfHeight)) {
+
+          this._playScript.UpdateScore(100);
+          var instance = createjs.Sound.play("yay");
+          instance.volume = 0.5;
+          enemy.destroy();
+          this._reset();
+
+        }
+        
+      });
     }
   }
 }

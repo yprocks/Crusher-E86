@@ -12,11 +12,11 @@ var objects;
 (function (objects) {
     var Bullet = /** @class */ (function (_super) {
         __extends(Bullet, _super);
-        // PRIVATE INSTANCE VARIABLES
         // PUBLIC PROPERTIES
         // CONSTRUCTORS
-        function Bullet(textureAtlas) {
+        function Bullet(textureAtlas, playScript) {
             var _this = _super.call(this, textureAtlas, "bullet") || this;
+            _this._playScript = playScript;
             _this.Start();
             return _this;
         }
@@ -45,6 +45,21 @@ var objects;
                 this._updatePosition();
                 this._checkBounds();
             }
+        };
+        Bullet.prototype._checkCollision = function (enemies) {
+            var _this = this;
+            enemies.forEach(function (enemy) {
+                var P1 = new createjs.Point(_this.x, _this.y);
+                var P2 = enemy.position;
+                if ((Math.sqrt(Math.pow(P2.x - P1.x, 2) + Math.pow(P2.y - P1.y, 2))) <
+                    (_this.halfHeight + enemy.halfHeight)) {
+                    _this._playScript.UpdateScore(100);
+                    var instance = createjs.Sound.play("yay");
+                    instance.volume = 0.5;
+                    enemy.destroy();
+                    _this._reset();
+                }
+            });
         };
         return Bullet;
     }(objects.GameObject));

@@ -6,7 +6,7 @@ module scenes {
 
     private _plane: objects.Plane;
     private _ocean: objects.Ocean;
-    private _island: objects.Island;
+    //private _island: objects.Island;
     private _clouds: objects.Cloud[];
     private _cloudNum: number;
 
@@ -46,7 +46,7 @@ module scenes {
 
       this._plane = new objects.Plane(this._textureAtlas);
       this._ocean = new objects.Ocean(this._assetManager);
-      this._island = new objects.Island(this._textureAtlas);
+      //this._island = new objects.Island(this._textureAtlas);
 
       this._bulletNum = 50;
       this._bullets = new Array<objects.Bullet>();
@@ -58,8 +58,8 @@ module scenes {
       this._lives = 5;
       this._score = 0;
 
-      this._livesLabel = new objects.Label("Lives: " + this._lives, "30px", "Dock51", "#FFFF00", 10, 10, false);
-      this._scoreLabel = new objects.Label("Score: " + this._score, "30px", "Dock51", "#FFFF00", 300, 10, false);
+      this._livesLabel = new objects.Label("Lives: " + this._lives, "26px", "orecrusher3d", "#FFFF00", 10, 10, false);
+      this._scoreLabel = new objects.Label("Score: " + this._score, "26px", "orecrusher3d", "#FFFF00", 300, 10, false);
 
       this.Main();
     }
@@ -67,11 +67,12 @@ module scenes {
     public Update(): number {
       this._plane.Update();
       this._ocean.Update();
-      this._island.Update();
-      this._checkCollision(this._island);
+      //this._island.Update();
+      //this._checkCollision(this._island);
 
       this._bullets.forEach(bullet => {
         bullet.Update();
+        bullet._checkCollision(this._clouds);        
       });
 
       this._clouds.forEach(cloud => {
@@ -83,11 +84,11 @@ module scenes {
 
     public Main(): void {
       this.addChild(this._ocean);
-      this.addChild(this._island);
+      //this.addChild(this._island);
       this.addChild(this._plane);
 
       for (let count = 0; count < this._bulletNum; count++) {
-        this._bullets[count] = new objects.Bullet(this._textureAtlas);
+        this._bullets[count] = new objects.Bullet(this._textureAtlas, this);
         this.addChild(this._bullets[count]);
       }
 
@@ -115,6 +116,19 @@ module scenes {
         }
     }
 
+    private _movement(event: KeyboardEvent): void {
+      var key = event.which || event.keyCode;
+      switch (key) {
+        case 37:
+          break;
+        case 39:
+          break;
+        default:
+          break;
+      }
+
+    }
+
     private _checkCollision(other: objects.GameObject) {
       let P1: createjs.Point = new createjs.Point(this._plane.x, this._plane.y);
       let P2: createjs.Point = other.position;
@@ -132,6 +146,7 @@ module scenes {
 
           if(other.name == "cloud") {
             this._lives -= 1;
+          
             if(this._lives <= 0) {
               this._currentScene = config.END;
               this._engineSound.stop();
@@ -141,6 +156,9 @@ module scenes {
             var instance = createjs.Sound.play("thunder");
             instance.volume = 0.5;
             this._livesLabel.text = "Lives: " + this._lives;
+
+            var enemy = other as objects.Cloud;
+            enemy.destroy();
           }
 
           other.isColliding = true;
@@ -149,6 +167,11 @@ module scenes {
         other.isColliding = false;
       }
 
+    }
+
+    public UpdateScore(score: number):void{
+      this._score += 100;
+      this._scoreLabel.text = "Score: " + this._score;
     }
 
   }
