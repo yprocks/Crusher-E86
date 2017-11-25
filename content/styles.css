@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'orecrusher3d';
+    src: url('../Assets/fonts/orecrusher3d.ttf') format('ttf'), url('../Assets/fonts/orecrusher.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body:not(canvas) {
     background: #555;
 }
