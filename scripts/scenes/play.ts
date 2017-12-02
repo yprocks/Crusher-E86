@@ -152,9 +152,9 @@ module scenes {
 
     }
 
-    private _createExplosion(): void {
-      this._explosion[this._explosionCounter].x = this._plane.x;
-      this._explosion[this._explosionCounter].y = this._plane.y;
+    public createExplosion(x: number, y: number): void {
+      this._explosion[this._explosionCounter].x = x;
+      this._explosion[this._explosionCounter].y = y;
       
       this._explosion[this._explosionCounter].gotoAndPlay(6);
       // this._explosion[this._explosionCounter].gotoAndStop(17);
@@ -195,7 +195,7 @@ module scenes {
 
             var enemy = other as objects.Cloud;
             enemy.destroy();
-            this._createExplosion();
+            this.createExplosion(this._plane.x, this._plane.y);
           }
           
           other.isColliding = true;

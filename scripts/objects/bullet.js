@@ -56,7 +56,10 @@ var objects;
                     _this._playScript.UpdateScore(100);
                     var instance = createjs.Sound.play("explosion");
                     instance.volume = 0.5;
+                    var x = enemy.position.x;
+                    var y = enemy.position.y;
                     enemy.destroy();
+                    _this._playScript.createExplosion(x, y);
                     _this._reset();
                 }
             });

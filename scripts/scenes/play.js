@@ -108,9 +108,9 @@ var scenes;
                     break;
             }
         };
-        Play.prototype._createExplosion = function () {
-            this._explosion[this._explosionCounter].x = this._plane.x;
-            this._explosion[this._explosionCounter].y = this._plane.y;
+        Play.prototype.createExplosion = function (x, y) {
+            this._explosion[this._explosionCounter].x = x;
+            this._explosion[this._explosionCounter].y = y;
             this._explosion[this._explosionCounter].gotoAndPlay(6);
             // this._explosion[this._explosionCounter].gotoAndStop(17);
             this._explosionCounter++;
@@ -143,7 +143,7 @@ var scenes;
                         this._livesLabel.text = "Lives: " + this._lives;
                         var enemy = other;
                         enemy.destroy();
-                        this._createExplosion();
+                        this.createExplosion(this._plane.x, this._plane.y);
                     }
                     other.isColliding = true;
                 }
