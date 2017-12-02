@@ -54,7 +54,7 @@ var objects;
                 if ((Math.sqrt(Math.pow(P2.x - P1.x, 2) + Math.pow(P2.y - P1.y, 2))) <
                     (_this.halfHeight + enemy.halfHeight)) {
                     _this._playScript.UpdateScore(100);
-                    var instance = createjs.Sound.play("yay");
+                    var instance = createjs.Sound.play("explosion");
                     instance.volume = 0.5;
                     enemy.destroy();
                     _this._reset();

@@ -72,9 +72,10 @@
     var assetManager;
     var assetManifest = [
         { id: "ocean", src: "../../assets/greenbg.png" },
-        { id: "engine", src: "../../assets/audio/engine.ogg" },
-        { id: "thunder", src: "../../assets/audio/thunder.ogg" },
-        { id: "yay", src: "../../assets/audio/yay.ogg" },
+        { id: "music", src: "../../assets/audio/gameMusic.mp3" },
+        //{ id: "thunder", src: "../../assets/audio/thunder.ogg" },
+        { id: "explosion", src: "../../assets/audio/explosion.wav" },
+        { id: "laser", src: "../../assets/audio/laser.mp3" },
         { id: "jet", src: "../../assets/ship.png" }
     ];
     var textureAtlasData = {
@@ -88,8 +89,28 @@
             [1, 1, 100, 65, 0, 0, 0],
             [1, 460, 180, 60, 0, 0, 0],
             [1, 400, 150, 60, 0, 0, 0],
+            [200, 335, 120, 125, 0, 0, 0],
+            [330, 335, 120, 125, 0, 0, 0],
+            [460, 335, 120, 125, 0, 0, 0],
+            [590, 335, 120, 125, 0, 0, 0],
+            [200, 460, 120, 125, 0, 0, 0],
+            [320, 460, 120, 125, 0, 0, 0],
+            [420, 460, 120, 125, 0, 0, 0],
+            [520, 460, 120, 125, 0, 0, 0],
+            [200, 585, 120, 125, 0, 0, 0],
+            [330, 585, 120, 125, 0, 0, 0],
+            [460, 585, 120, 125, 0, 0, 0],
+            [590, 585, 120, 125, 0, 0, 0]
         ],
         "animations": {
+            "explosion": {
+                frames: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+                //next: "clearAnim",
+                speed: 0.01
+            },
+            "clearAnim": {
+                frames: [17]
+            },
             "bullet": { "frames": [0] },
             "cloud": { "frames": [1] },
             "island": { "frames": [2] },

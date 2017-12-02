@@ -52,7 +52,7 @@ module objects {
           (this.halfHeight + enemy.halfHeight)) {
 
           this._playScript.UpdateScore(100);
-          var instance = createjs.Sound.play("yay");
+          var instance = createjs.Sound.play("explosion");
           instance.volume = 0.5;
           enemy.destroy();
           this._reset();

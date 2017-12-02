@@ -26,15 +26,18 @@ var scenes;
         // PRIVATE METHODS
         // PUBLIC METHODS
         Play.prototype.Start = function () {
-            this._engineSound = createjs.Sound.play("engine");
-            this._engineSound.volume = 0.25;
-            this._engineSound.loop = -1;
+            this._gameMusic = createjs.Sound.play("music");
+            this._gameMusic.volume = 0.20;
+            this._gameMusic.loop = -1;
             this._plane = new objects.Plane(this._textureAtlas);
             this._ocean = new objects.Ocean(this._assetManager);
             //this._island = new objects.Island(this._textureAtlas);
             this._bulletNum = 50;
             this._bullets = new Array();
             this._bulletCounter = 0;
+            this._explosionNum = 10;
+            this._explosion = new Array();
+            this._explosionCounter = 0;
             this._cloudNum = 3;
             this._clouds = new Array();
             this._lives = 5;
@@ -57,6 +60,9 @@ var scenes;
                 cloud.Update();
                 _this._checkCollision(cloud);
             });
+            this._explosion.forEach(function (explosion) {
+                explosion.Update();
+            });
             return this._currentScene;
         };
         Play.prototype.Main = function () {
@@ -71,6 +77,10 @@ var scenes;
                 this._clouds[count] = new objects.Cloud(this._textureAtlas);
                 this.addChild(this._clouds[count]);
             }
+            for (var count = 0; count < this._explosionNum; count++) {
+                this._explosion[count] = new objects.Explosion(this._textureAtlas);
+                this.addChild(this._explosion[count]);
+            }
             this.addChild(this._livesLabel);
             this.addChild(this._scoreLabel);
             //window.addEventListener("mousedown", () => {this._bulletFire()});
@@ -79,6 +89,8 @@ var scenes;
         Play.prototype._bulletFire = function () {
             this._bullets[this._bulletCounter].x = this._plane.bulletSpawn.x;
             this._bullets[this._bulletCounter].y = this._plane.bulletSpawn.y;
+            var instance = createjs.Sound.play("laser");
+            instance.volume = 0.5;
             this._bulletCounter++;
             console.log(this._bulletCounter);
             if (this._bulletCounter >= this._bulletNum - 1) {
@@ -96,6 +108,15 @@ var scenes;
                     break;
             }
         };
+        Play.prototype._createExplosion = function () {
+            this._explosion[this._explosionCounter].x = this._plane.x;
+            this._explosion[this._explosionCounter].y = this._plane.y;
+            this._explosion[this._explosionCounter].gotoAndPlay(6);
+            // this._explosion[this._explosionCounter].gotoAndStop(17);
+            this._explosionCounter++;
+            if (this._explosionCounter >= this._explosionNum - 1)
+                this._explosionCounter = 0;
+        };
         Play.prototype._checkCollision = function (other) {
             var P1 = new createjs.Point(this._plane.x, this._plane.y);
             var P2 = other.position;
@@ -106,22 +127,23 @@ var scenes;
                     if (other.name == "island") {
                         this._score += 100;
                         this._scoreLabel.text = "Score: " + this._score;
-                        var instance = createjs.Sound.play("yay");
+                        var instance = createjs.Sound.play("explosion");
                         instance.volume = 0.5;
                     }
                     if (other.name == "cloud") {
                         this._lives -= 1;
                         if (this._lives <= 0) {
                             this._currentScene = config.END;
-                            this._engineSound.stop();
+                            this._gameMusic.stop();
                             window.removeEventListener("mousedown", this._bulletFire);
                             this.removeAllChildren();
                         }
-                        var instance = createjs.Sound.play("thunder");
+                        var instance = createjs.Sound.play("explosion");
                         instance.volume = 0.5;
                         this._livesLabel.text = "Lives: " + this._lives;
                         var enemy = other;
                         enemy.destroy();
+                        this._createExplosion();
                     }
                     other.isColliding = true;
                 }
