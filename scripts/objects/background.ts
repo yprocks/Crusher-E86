@@ -7,7 +7,6 @@ module objects {
     // CONSTRUCTORS
     constructor(assetManager: createjs.LoadQueue) {
       super(assetManager.getResult("background"));
-
       this.Start();
     }
 
