@@ -65,7 +65,7 @@ module scenes {
 
       this._lives = 5;
       this._score = 0;
-
+      
       this._livesLabel = new objects.Label("Lives: " + this._lives, "26px", "orecrusher3d", "#FFFF00", 10, 10, false);
       this._scoreLabel = new objects.Label("Score: " + this._score, "26px", "orecrusher3d", "#FFFF00", 300, 10, false);
 

@@ -89,7 +89,6 @@
   let assetManifest = [
     { id: "background", src: "../../assets/greenbg.png" },
     { id: "music", src: "../../assets/audio/gameMusic.mp3" },
-    //{ id: "thunder", src: "../../assets/audio/thunder.ogg" },
     { id: "explosion", src: "../../assets/audio/explosion.wav" },
     { id: "laser", src: "../../assets/audio/laser.mp3" },
     { id: "jet", src: "../../assets/ship.png" }    
