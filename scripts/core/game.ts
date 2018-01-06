@@ -133,7 +133,7 @@
       },
       "bullet": { "frames": [0] },
       "cloud": { "frames": [1] },
-      "island": { "frames": [2] },
+      "enemy": { "frames": [2] },
       "plane": { "frames": [3] },
       "restartButton": { "frames": [4] },
       "startButton": { "frames": [5] }

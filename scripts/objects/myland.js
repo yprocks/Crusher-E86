@@ -12,11 +12,10 @@ var objects;
 (function (objects) {
     var Island = /** @class */ (function (_super) {
         __extends(Island, _super);
-        // PRIVATE INSTANCE VARIABLES
         // PUBLIC PROPERTIES
         // CONSTRUCTORS
         function Island(textureAtlas) {
-            var _this = _super.call(this, textureAtlas, "island") || this;
+            var _this = _super.call(this, textureAtlas, "enemy") || this;
             _this.Start();
             return _this;
         }
@@ -32,13 +31,21 @@ var objects;
         };
         // PUBLIC METHODS
         Island.prototype.Start = function () {
+            this.i = 0;
             this.verticalSpeed = 5;
             this._reset();
         };
         Island.prototype._updatePosition = function () {
-            this.y += this.verticalSpeed;
-            this.position.x = this.x;
-            this.position.y = this.y;
+            this.x = -Math.sin(this.i) * 40 + 200; // * PHASE + OFFSET
+            this.y = -this.i * 22 + 400;
+            // this.x = Math.sin(this.i) * 40 + 200;
+            // this.y = -this.i * 22 + 400;
+            // this.x -= 5;
+            // this.y -= 5;
+            this.i += 0.1;
+            // this.y += this.verticalSpeed;
+            // this.position.x = this.x;
+            // this.position.y = this.y;
         };
         Island.prototype.Update = function () {
             this._updatePosition();
@@ -48,4 +55,4 @@ var objects;
     }(objects.GameObject));
     objects.Island = Island;
 })(objects || (objects = {}));
-//# sourceMappingURL=island.js.map
+//# sourceMappingURL=myland.js.map
