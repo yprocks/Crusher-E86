@@ -87,7 +87,7 @@
   let canvas: any;
   let assetManager: createjs.LoadQueue;
   let assetManifest = [
-    { id: "ocean", src: "../../assets/greenbg.png" },
+    { id: "background", src: "../../assets/greenbg.png" },
     { id: "music", src: "../../assets/audio/gameMusic.mp3" },
     //{ id: "thunder", src: "../../assets/audio/thunder.ogg" },
     { id: "explosion", src: "../../assets/audio/explosion.wav" },

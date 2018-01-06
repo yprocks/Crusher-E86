@@ -27,7 +27,7 @@ var scenes;
         End.prototype.Start = function () {
             this._gameOverLabel = new objects.Label("Game Over", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
             this._restartButton = new objects.Button(this._textureAtlas, "restartButton", 250, 340, true);
-            this._ocean = new objects.Ocean(this._assetManager);
+            this._ocean = new objects.Background(this._assetManager);
             this.Main();
         };
         End.prototype.Update = function () {

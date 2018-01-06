@@ -6,7 +6,7 @@ module scenes {
 
     private _welcomeLabel:objects.Label;
     private _startButton:objects.Button;
-    private _ocean: objects.Ocean;
+    private _ocean: objects.Background;
 
     // PUBLIC PROPERTIES
 
@@ -24,7 +24,7 @@ module scenes {
     public Start():void {
       this._welcomeLabel = new objects.Label("Crusher E86", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
       this._startButton = new objects.Button(this._textureAtlas, "startButton", 250, 340, true);
-      this._ocean = new objects.Ocean(this._assetManager);
+      this._ocean = new objects.Background(this._assetManager);
       this.Main();
     }
 

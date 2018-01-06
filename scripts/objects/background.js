@@ -10,35 +10,35 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Ocean = /** @class */ (function (_super) {
-        __extends(Ocean, _super);
+    var Background = /** @class */ (function (_super) {
+        __extends(Background, _super);
         // PUBLIC PROPERTIES
         // CONSTRUCTORS
-        function Ocean(assetManager) {
-            var _this = _super.call(this, assetManager.getResult("ocean")) || this;
+        function Background(assetManager) {
+            var _this = _super.call(this, assetManager.getResult("background")) || this;
             _this.Start();
             return _this;
         }
         // PRIVATE METHODS
-        Ocean.prototype._reset = function () {
+        Background.prototype._reset = function () {
             this.y = -620;
         };
-        Ocean.prototype._checkBounds = function () {
+        Background.prototype._checkBounds = function () {
             if (this.y >= 0) {
                 this._reset();
             }
         };
         // PUBLIC METHODS
-        Ocean.prototype.Start = function () {
+        Background.prototype.Start = function () {
             this._verticalSpeed = 2;
             this._reset();
         };
-        Ocean.prototype.Update = function () {
+        Background.prototype.Update = function () {
             this.y += this._verticalSpeed;
             this._checkBounds();
         };
-        return Ocean;
+        return Background;
     }(createjs.Bitmap));
-    objects.Ocean = Ocean;
+    objects.Background = Background;
 })(objects || (objects = {}));
-//# sourceMappingURL=ocean.js.map
+//# sourceMappingURL=background.js.map

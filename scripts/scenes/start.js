@@ -27,7 +27,7 @@ var scenes;
         Start.prototype.Start = function () {
             this._welcomeLabel = new objects.Label("Crusher E86", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
             this._startButton = new objects.Button(this._textureAtlas, "startButton", 250, 340, true);
-            this._ocean = new objects.Ocean(this._assetManager);
+            this._ocean = new objects.Background(this._assetManager);
             this.Main();
         };
         Start.prototype.Update = function () {

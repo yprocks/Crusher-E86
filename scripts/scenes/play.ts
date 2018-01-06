@@ -5,7 +5,7 @@ module scenes {
     private _textureAtlas: createjs.SpriteSheet;
 
     private _plane: objects.Plane;
-    private _ocean: objects.Ocean;
+    private _bg: objects.Background;
     //private _island: objects.Island;
     private _clouds: objects.Cloud[];
     private _cloudNum: number;
@@ -49,7 +49,7 @@ module scenes {
       this._gameMusic.loop = -1;
 
       this._plane = new objects.Plane(this._textureAtlas);
-      this._ocean = new objects.Ocean(this._assetManager);
+      this._bg = new objects.Background(this._assetManager);
       //this._island = new objects.Island(this._textureAtlas);
 
       this._bulletNum = 50;
@@ -74,7 +74,7 @@ module scenes {
 
     public Update(): number {
       this._plane.Update();
-      this._ocean.Update();
+      this._bg.Update();
       //this._island.Update();
       //this._checkCollision(this._island);
 
@@ -96,7 +96,7 @@ module scenes {
     }
 
     public Main(): void {
-      this.addChild(this._ocean);
+      this.addChild(this._bg);
       //this.addChild(this._island);
       this.addChild(this._plane);
 

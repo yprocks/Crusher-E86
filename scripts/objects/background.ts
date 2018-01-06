@@ -1,12 +1,12 @@
 module objects {
-  export class Ocean extends createjs.Bitmap {
+  export class Background extends createjs.Bitmap {
     // PRIVATE INSTANCE VARIABLES
     private _verticalSpeed:number;
     // PUBLIC PROPERTIES
 
     // CONSTRUCTORS
     constructor(assetManager: createjs.LoadQueue) {
-      super(assetManager.getResult("ocean"));
+      super(assetManager.getResult("background"));
 
       this.Start();
     }
