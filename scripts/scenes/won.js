@@ -10,11 +10,11 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var End = /** @class */ (function (_super) {
-        __extends(End, _super);
+    var Won = /** @class */ (function (_super) {
+        __extends(Won, _super);
         // PUBLIC PROPERTIES
         // CONSTRUCTORS
-        function End(assetManager, textureAtlas, currentScene) {
+        function Won(assetManager, textureAtlas, currentScene) {
             var _this = _super.call(this) || this;
             _this._assetManager = assetManager;
             _this._currentScene = currentScene;
@@ -24,28 +24,28 @@ var scenes;
         }
         // PRIVATE METHODS
         // PUBLIC METHODS
-        End.prototype.Start = function () {
-            this._gameOverLabel = new objects.Label("Game Over", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
+        Won.prototype.Start = function () {
+            this._gameWonLabel = new objects.Label("You Won", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
             this._restartButton = new objects.Button(this._textureAtlas, "restartButton", 250, 340, true);
             this._ocean = new objects.Background(this._assetManager, "bg1");
             this.Main();
         };
-        End.prototype.Update = function () {
+        Won.prototype.Update = function () {
             this._ocean.Update();
             return this._currentScene;
         };
-        End.prototype.Main = function () {
+        Won.prototype.Main = function () {
             var _this = this;
             this.addChild(this._ocean);
-            this.addChild(this._gameOverLabel);
+            this.addChild(this._gameWonLabel);
             this.addChild(this._restartButton);
             this._restartButton.on("click", function () {
                 _this._currentScene = config.PLAY;
                 _this.removeAllChildren();
             });
         };
-        return End;
+        return Won;
     }(objects.Scene));
-    scenes.End = End;
+    scenes.Won = Won;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=end.js.map
+//# sourceMappingURL=won.js.map

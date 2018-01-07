@@ -25,7 +25,7 @@ module scenes {
     public Start():void {
       this._gameOverLabel = new objects.Label("Game Over", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
       this._restartButton = new objects.Button(this._textureAtlas, "restartButton", 250, 340, true);
-      this._ocean = new objects.Background(this._assetManager);
+      this._ocean = new objects.Background(this._assetManager, "bg1");
       this.Main();
     }
 
@@ -39,7 +39,6 @@ module scenes {
       this.addChild(this._ocean);
 
       this.addChild(this._gameOverLabel);
-
 
       this.addChild(this._restartButton);
 

@@ -28,6 +28,8 @@ var objects;
                 this.x = 50;
             }
         };
+        Plane.prototype._reset = function () {
+        };
         // PUBLIC METHODS
         Plane.prototype.Start = function () {
             this.width = this.getBounds().width;
@@ -38,13 +40,16 @@ var objects;
             this.regY = this.halfHeight;
             this.x = 320;
             this.y = 560;
-            this.bulletSpawn = new createjs.Point(this.y - 35, this.x);
+            this.bulletSpawn = new createjs.Point(this.x - 10, this.y - 35);
         };
         Plane.prototype.Update = function () {
             this.x = this.stage.mouseX;
             this._checkBounds();
             this.bulletSpawn.x = this.x - 10;
             this.bulletSpawn.y = this.y - 35;
+        };
+        Plane.prototype.destroy = function () {
+            this._reset();
         };
         return Plane;
     }(createjs.Sprite));

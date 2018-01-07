@@ -14,8 +14,8 @@ var objects;
         __extends(Background, _super);
         // PUBLIC PROPERTIES
         // CONSTRUCTORS
-        function Background(assetManager) {
-            var _this = _super.call(this, assetManager.getResult("background")) || this;
+        function Background(assetManager, value) {
+            var _this = _super.call(this, assetManager.getResult(value)) || this;
             _this.Start();
             return _this;
         }

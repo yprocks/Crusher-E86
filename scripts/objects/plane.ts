@@ -27,6 +27,9 @@ module objects {
       }
     }
 
+    private _reset():void {
+      
+    }
 
     // PUBLIC METHODS
     public Start() {
@@ -38,7 +41,7 @@ module objects {
       this.regY = this.halfHeight;
       this.x = 320;
       this.y = 560;
-      this.bulletSpawn = new createjs.Point(this.y - 35, this.x);
+      this.bulletSpawn = new createjs.Point(this.x - 10, this.y - 35);
     }
 
     public Update() {
@@ -48,7 +51,9 @@ module objects {
       this.bulletSpawn.y = this.y - 35;
     }
 
-    
+    public destroy():void {
+      this._reset();
+    }
   
     // public _movement(event: KeyboardEvent): void {
     //   event.preventDefault();

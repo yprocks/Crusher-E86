@@ -71,7 +71,9 @@
     var canvas;
     var assetManager;
     var assetManifest = [
-        { id: "background", src: "../../assets/greenbg.png" },
+        { id: "bg1", src: "../../assets/greenbg.png" },
+        { id: "bg2", src: "../../assets/bluebg.png" },
+        { id: "bg3", src: "../../assets/redbg.png" },
         { id: "music", src: "../../assets/audio/gameMusic.mp3" },
         { id: "explosion", src: "../../assets/audio/explosion.wav" },
         { id: "laser", src: "../../assets/audio/laser.mp3" },
@@ -83,39 +85,47 @@
         ],
         "frames": [
             [120, 1, 12, 30, 0, 0, 0],
-            [1, 90, 80, 60, 0, 0, 0],
-            [1, 181, 62, 63, 0, 0, 0],
+            [1, 90, 90, 60, 0, 0, 0],
+            [170, 1, 330, 310, 0, 0, 0],
             [1, 1, 100, 65, 0, 0, 0],
-            [1, 460, 180, 60, 0, 0, 0],
-            [1, 400, 150, 60, 0, 0, 0],
+            [1, 500, 180, 50, 0, 0, 0],
+            [1, 440, 150, 50, 0, 0, 0],
+            [7, 160, 95, 95, 0, 0, 0],
+            [7, 260, 90, 95, 0, 0, 0],
+            [7, 355, 90, 90, 0, 0, 0],
             [200, 335, 120, 125, 0, 0, 0],
             [330, 335, 120, 125, 0, 0, 0],
             [460, 335, 120, 125, 0, 0, 0],
             [590, 335, 120, 125, 0, 0, 0],
             [200, 460, 120, 125, 0, 0, 0],
             [320, 460, 120, 125, 0, 0, 0],
-            [420, 460, 120, 125, 0, 0, 0],
-            [520, 460, 120, 125, 0, 0, 0],
+            [450, 460, 120, 125, 0, 0, 0],
+            [580, 460, 120, 125, 0, 0, 0],
             [200, 585, 120, 125, 0, 0, 0],
             [330, 585, 120, 125, 0, 0, 0],
             [460, 585, 120, 125, 0, 0, 0],
-            [590, 585, 120, 125, 0, 0, 0]
+            [590, 585, 120, 125, 0, 0, 0],
+            [120, 40, 12, 30, 0, 0, 0]
         ],
         "animations": {
             "explosion": {
-                frames: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+                frames: [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
                 //next: "clearAnim",
                 speed: 0.01
             },
             "clearAnim": {
-                frames: [17]
+                frames: [20]
             },
-            "bullet": { "frames": [0] },
-            "cloud": { "frames": [1] },
-            "enemy": { "frames": [2] },
+            "enemybullet": { "frames": [0] },
+            "enemy": { "frames": [1] },
+            "boss": { "frames": [2] },
             "plane": { "frames": [3] },
             "restartButton": { "frames": [4] },
-            "startButton": { "frames": [5] }
+            "startButton": { "frames": [5] },
+            "life": { "frames": [7] },
+            "singun": { "frames": [8] },
+            "shield": { "frames": [6] },
+            "bullet": { "frames": [21] }
         }
     };
     var textureAtlas;
@@ -153,6 +163,9 @@
                 break;
             case config.PLAY:
                 currentScene = new scenes.Play(assetManager, textureAtlas, currentState);
+                break;
+            case config.WON:
+                currentScene = new scenes.Won(assetManager, textureAtlas, currentState);
                 break;
             case config.END:
                 currentScene = new scenes.End(assetManager, textureAtlas, currentState);
