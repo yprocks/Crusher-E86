@@ -1,5 +1,5 @@
 module objects {
-  export class OtherBullet extends objects.GameObject {
+  export class EnemyBullet extends objects.GameObject {
     // PRIVATE INSTANCE VARIABLES
     private _playScript: scenes.Play;
 

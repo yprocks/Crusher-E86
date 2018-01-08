@@ -45,7 +45,7 @@ var objects;
             this._bulletCounter = 0;
             this._bullets = new Array();
             for (var count = 0; count < this._bulletNum; count++) {
-                this._bullets[count] = new objects.OtherBullet(this._textureAtlas, this._playScript);
+                this._bullets[count] = new objects.EnemyBullet(this._textureAtlas, this._playScript);
                 this._playScript.addChild(this._bullets[count]);
             }
             this._reset();

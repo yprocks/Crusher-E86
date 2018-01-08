@@ -6,7 +6,7 @@ module objects {
         //   private ySpawn: number;
         private angle: number;
 
-        private _bullets: objects.OtherBullet[];
+        private _bullets: objects.EnemyBullet[];
         private _bulletNum: number;
         private _bulletCounter: number;
 
@@ -57,10 +57,10 @@ module objects {
             this._bulletNum = 50;
             this._bulletCounter = 0;
 
-            this._bullets = new Array<objects.OtherBullet>();
+            this._bullets = new Array<objects.EnemyBullet>();
 
             for (let count = 0; count < this._bulletNum; count++) {
-                this._bullets[count] = new objects.OtherBullet(this._textureAtlas, this._playScript);
+                this._bullets[count] = new objects.EnemyBullet(this._textureAtlas, this._playScript);
                 this._playScript.addChild(this._bullets[count]);
             }
 
@@ -88,7 +88,6 @@ module objects {
                 this._curFrames++;
 
                 if (this._curFrames >= this._frameDelay) {
-
                     this.bulletFire(this.x, this.y);
                     this._curFrames = 0;
                 }

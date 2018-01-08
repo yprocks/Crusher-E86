@@ -112,6 +112,9 @@
       [7, 160, 95, 95, 0, 0, 0],
       [7, 260, 90, 95, 0, 0, 0],
       [7, 355, 90, 90, 0, 0, 0],
+      [120, 40, 12, 30, 0, 0, 0],
+      [1, 550, 180, 50, 0, 0, 0],
+      [1, 610, 140, 50, 0, 0, 0],
       [200, 335, 120, 125, 0, 0, 0],
       [330, 335, 120, 125, 0, 0, 0],
       [460, 335, 120, 125, 0, 0, 0],
@@ -123,18 +126,17 @@
       [200, 585, 120, 125, 0, 0, 0],
       [330, 585, 120, 125, 0, 0, 0],
       [460, 585, 120, 125, 0, 0, 0],
-      [590, 585, 120, 125, 0, 0, 0],
-      [120, 40, 12, 30, 0, 0, 0]
+      [590, 585, 120, 125, 0, 0, 0]
     ],
 
     "animations": {
       "explosion": {
-        frames: [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+        frames: [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
         //next: "clearAnim",
         speed: 0.01
       },
       "clearAnim": {
-        frames: [20]
+        frames: [23]
       },
       "enemybullet": { "frames": [0] },
       "enemy": { "frames": [1] },
@@ -145,7 +147,9 @@
       "life": { "frames": [7] },
       "singun": { "frames": [8] },
       "shield": { "frames": [6] },
-      "bullet": { "frames" : [21]}
+      "bullet": { "frames" : [9]},
+      "manual": { "frames" : [10]},
+      "menu": { "frames" : [11]}
     }
   };
 
@@ -193,6 +197,9 @@
         break;
       case config.PLAY:
         currentScene = new scenes.Play(assetManager, textureAtlas, currentState);
+        break;
+      case config.INSTRUCTIONS:
+        currentScene = new scenes.Instructions(assetManager, textureAtlas, currentState);
         break;
       case config.WON:
         currentScene = new scenes.Won(assetManager, textureAtlas, currentState);

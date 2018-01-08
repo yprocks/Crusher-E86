@@ -27,20 +27,26 @@ var scenes;
         Start.prototype.Start = function () {
             this._welcomeLabel = new objects.Label("Crusher E86", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
             this._startButton = new objects.Button(this._textureAtlas, "startButton", 250, 340, true);
-            this._ocean = new objects.Background(this._assetManager, "bg1");
+            this._manual = new objects.Button(this._textureAtlas, "manual", 250, 400, true);
+            this._bg = new objects.Background(this._assetManager, "bg1");
             this.Main();
         };
         Start.prototype.Update = function () {
-            this._ocean.Update();
+            this._bg.Update();
             return this._currentScene;
         };
         Start.prototype.Main = function () {
             var _this = this;
-            this.addChild(this._ocean);
+            this.addChild(this._bg);
             this.addChild(this._welcomeLabel);
             this.addChild(this._startButton);
+            this.addChild(this._manual);
             this._startButton.on("click", function () {
                 _this._currentScene = config.PLAY;
+                _this.removeAllChildren();
+            });
+            this._manual.on("click", function () {
+                _this._currentScene = config.INSTRUCTIONS;
                 _this.removeAllChildren();
             });
         };

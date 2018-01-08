@@ -10,47 +10,42 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var Won = /** @class */ (function (_super) {
-        __extends(Won, _super);
+    var Instructions = /** @class */ (function (_super) {
+        __extends(Instructions, _super);
         // PUBLIC PROPERTIES
         // CONSTRUCTORS
-        function Won(assetManager, textureAtlas, currentScene) {
+        function Instructions(assetManager, textureAtlas, currentScene) {
             var _this = _super.call(this) || this;
             _this._assetManager = assetManager;
-            _this._currentScene = currentScene;
             _this._textureAtlas = textureAtlas;
+            _this._currentScene = currentScene;
             _this.Start();
             return _this;
         }
         // PRIVATE METHODS
         // PUBLIC METHODS
-        Won.prototype.Start = function () {
-            this._gameWonLabel = new objects.Label("You Won", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
-            this._restartButton = new objects.Button(this._textureAtlas, "restartButton", 250, 400, true);
+        Instructions.prototype.Start = function () {
+            this._welcomeLabel = new objects.Label("Crusher E86", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
+            this._menu = new objects.Button(this._textureAtlas, "menu", 250, 340, true);
             this._bg = new objects.Background(this._assetManager, "bg1");
             this.Main();
         };
-        Won.prototype.Update = function () {
+        Instructions.prototype.Update = function () {
             this._bg.Update();
             return this._currentScene;
         };
-        Won.prototype.Main = function () {
+        Instructions.prototype.Main = function () {
             var _this = this;
             this.addChild(this._bg);
-            this.addChild(this._gameWonLabel);
-            this.addChild(this._restartButton);
+            this.addChild(this._welcomeLabel);
             this.addChild(this._menu);
-            this._restartButton.on("click", function () {
-                _this._currentScene = config.PLAY;
-                _this.removeAllChildren();
-            });
             this._menu.on("click", function () {
                 _this._currentScene = config.START;
                 _this.removeAllChildren();
             });
         };
-        return Won;
+        return Instructions;
     }(objects.Scene));
-    scenes.Won = Won;
+    scenes.Instructions = Instructions;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=won.js.map
+//# sourceMappingURL=instructions.js.map

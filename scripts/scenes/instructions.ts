@@ -1,14 +1,13 @@
 module scenes {
-  export class End extends objects.Scene {
+  export class Instructions extends objects.Scene {
     // PRIVATE INSTANCE VARIABLES
     private _assetManager:createjs.LoadQueue;
     private _textureAtlas:createjs.SpriteSheet;
 
-    private _gameOverLabel:objects.Label;
-    private _restartButton:objects.Button;
-    private _menu: objects.Button;
-    
+    private _welcomeLabel:objects.Label;
+    private _menu:objects.Button;
     private _bg: objects.Background;
+
 
     // PUBLIC PROPERTIES
 
@@ -16,17 +15,16 @@ module scenes {
     constructor(assetManager:createjs.LoadQueue, textureAtlas:createjs.SpriteSheet, currentScene:number) {
       super();
       this._assetManager = assetManager;
-      this._currentScene = currentScene;
       this._textureAtlas = textureAtlas;
+      this._currentScene = currentScene;
       this.Start();
     }
     // PRIVATE METHODS
 
     // PUBLIC METHODS
     public Start():void {
-      this._gameOverLabel = new objects.Label("Game Over", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
-      this._restartButton = new objects.Button(this._textureAtlas, "restartButton", 250, 340, true);
-      this._menu = new objects.Button(this._textureAtlas, "menu", 250, 400, true);
+      this._welcomeLabel = new objects.Label("Crusher E86", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
+      this._menu = new objects.Button(this._textureAtlas, "menu", 250, 340, true);
       this._bg = new objects.Background(this._assetManager, "bg1");
       this.Main();
     }
@@ -37,23 +35,16 @@ module scenes {
     }
 
     public Main():void {
-
       this.addChild(this._bg);
-    
-      this.addChild(this._gameOverLabel);
+      this.addChild(this._welcomeLabel);
 
-      this.addChild(this._restartButton);
       this.addChild(this._menu);
-
-      this._restartButton.on("click", () => {
-        this._currentScene = config.PLAY;
-        this.removeAllChildren();
-      });
 
       this._menu.on("click", () => {
         this._currentScene = config.START;
         this.removeAllChildren();
       });
+
     }
   }
 }

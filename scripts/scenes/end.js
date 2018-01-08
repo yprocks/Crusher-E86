@@ -27,20 +27,26 @@ var scenes;
         End.prototype.Start = function () {
             this._gameOverLabel = new objects.Label("Game Over", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
             this._restartButton = new objects.Button(this._textureAtlas, "restartButton", 250, 340, true);
-            this._ocean = new objects.Background(this._assetManager, "bg1");
+            this._menu = new objects.Button(this._textureAtlas, "menu", 250, 400, true);
+            this._bg = new objects.Background(this._assetManager, "bg1");
             this.Main();
         };
         End.prototype.Update = function () {
-            this._ocean.Update();
+            this._bg.Update();
             return this._currentScene;
         };
         End.prototype.Main = function () {
             var _this = this;
-            this.addChild(this._ocean);
+            this.addChild(this._bg);
             this.addChild(this._gameOverLabel);
             this.addChild(this._restartButton);
+            this.addChild(this._menu);
             this._restartButton.on("click", function () {
                 _this._currentScene = config.PLAY;
+                _this.removeAllChildren();
+            });
+            this._menu.on("click", function () {
+                _this._currentScene = config.START;
                 _this.removeAllChildren();
             });
         };

@@ -26,7 +26,7 @@ var scenes;
         // PRIVATE METHODS
         // PUBLIC METHODS
         Play.prototype.Start = function () {
-            this._levelEnemyCount = 5;
+            this._levelEnemyCount = 20;
             this._playerEnemyKill = 0;
             this._currentLevel = 1;
             this.totalBossKill = 20;
@@ -51,7 +51,7 @@ var scenes;
             this._bulletNum = 150;
             this._bullets = new Array();
             this._bulletCounter = 0;
-            this._explosionNum = 10;
+            this._explosionNum = 40;
             this._explosion = new Array();
             this._explosionCounter = 0;
             this._enemyNum = 3;
@@ -95,7 +95,7 @@ var scenes;
                 this._curFrame++;
                 if (this._curFrame >= this._frameDelay) {
                     this._curFrame = 0;
-                    this._frameDelay = (Math.random() * 100) + 1000;
+                    this._frameDelay = (Math.random() * 100) + 800;
                     this._spawnRandomPowerUps();
                 }
             }
@@ -168,8 +168,8 @@ var scenes;
         Play.prototype.createExplosion = function (x, y) {
             this._explosion[this._explosionCounter].x = x;
             this._explosion[this._explosionCounter].y = y;
-            this._explosion[this._explosionCounter].gotoAndPlay(9);
-            // this._explosion[this._explosionCounter].gotoAndStop(17);
+            this._explosion[this._explosionCounter].gotoAndPlay(12);
+            // this._explosion[this._explosionCounter].gotoAndStop(23);
             this._explosionCounter++;
             if (this._explosionCounter >= this._explosionNum - 1)
                 this._explosionCounter = 0;

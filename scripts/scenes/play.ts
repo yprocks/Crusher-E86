@@ -29,7 +29,7 @@ module scenes {
     private _bulletNum: number;
     private _bulletCounter: number;
 
-    private _enemybullets: objects.OtherBullet[];
+    private _enemybullets: objects.EnemyBullet[];
     private _enemybulletNum: number;
 
     private _livesLabel: objects.Label;
@@ -76,7 +76,7 @@ module scenes {
     // PUBLIC METHODS
     public Start(): void {
 
-      this._levelEnemyCount = 5;
+      this._levelEnemyCount = 20;
 
       this._playerEnemyKill = 0;
       this._currentLevel = 1;
@@ -111,7 +111,7 @@ module scenes {
       this._bullets = new Array<objects.Bullet>();
       this._bulletCounter = 0;
 
-      this._explosionNum = 10;
+      this._explosionNum = 40;
       this._explosion = new Array<objects.Explosion>();
       this._explosionCounter = 0;
 
@@ -168,7 +168,7 @@ module scenes {
         this._curFrame++;
         if (this._curFrame >= this._frameDelay) {
           this._curFrame = 0;
-          this._frameDelay = (Math.random() * 100) + 1000;
+          this._frameDelay = (Math.random() * 100) + 800;
           this._spawnRandomPowerUps();
         }
       }
@@ -260,8 +260,8 @@ module scenes {
       this._explosion[this._explosionCounter].x = x;
       this._explosion[this._explosionCounter].y = y;
 
-      this._explosion[this._explosionCounter].gotoAndPlay(9);
-      // this._explosion[this._explosionCounter].gotoAndStop(17);
+      this._explosion[this._explosionCounter].gotoAndPlay(12);
+      // this._explosion[this._explosionCounter].gotoAndStop(23);
 
       this._explosionCounter++;
       if (this._explosionCounter >= this._explosionNum - 1)
@@ -361,7 +361,7 @@ module scenes {
               }
             }
             else if (other.name == "enemybullet") {
-              var bullet = other as objects.OtherBullet;
+              var bullet = other as objects.EnemyBullet;
               bullet.destroy();
             }
           }
