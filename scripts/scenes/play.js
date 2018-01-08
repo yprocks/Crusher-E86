@@ -26,7 +26,7 @@ var scenes;
         // PRIVATE METHODS
         // PUBLIC METHODS
         Play.prototype.Start = function () {
-            this._levelEnemyCount = 3;
+            this._levelEnemyCount = 20;
             this._playerEnemyKill = 0;
             this._currentLevel = 1;
             this.totalBossKill = 20;

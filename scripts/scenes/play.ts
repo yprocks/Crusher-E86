@@ -76,7 +76,7 @@ module scenes {
     // PUBLIC METHODS
     public Start(): void {
 
-      this._levelEnemyCount = 3;
+      this._levelEnemyCount = 20;
 
       this._playerEnemyKill = 0;
       this._currentLevel = 1;
