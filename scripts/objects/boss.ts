@@ -17,6 +17,9 @@ module objects {
         private _frameDelay: number;
         private _curFrames: number;
 
+        private _bossdelay: number;
+        private _showBoss: boolean;
+
         // PUBLIC PROPERTIES
 
         // CONSTRUCTORS
@@ -25,6 +28,7 @@ module objects {
             this._textureAtlas = textureAtlas;
             this._playScript = playerScript;
             this.i = Math.random() * - 20;
+            this._showBoss = false;
             this.Start();
         }
 
@@ -70,6 +74,8 @@ module objects {
 
             this._frameDelay = (Math.random()) + 45;
             this._curFrames = 0;
+
+            this._bossdelay = 0;
         }
 
         private _updatePosition(): void {
@@ -82,6 +88,14 @@ module objects {
 
         public Update(): void {
             if (this._playScript._currentLevel == 3) {
+                
+                this._bossdelay ++;
+
+                if(this._bossdelay > 100){
+                    this._showBoss = true;
+                }
+
+                if(this._showBoss){
                 this._updatePosition();
                 this._checkBounds();
 
@@ -95,6 +109,8 @@ module objects {
                 this._bullets.forEach(bullet => {
                     bullet.Update();
                 });
+            }
+
             }
         }
 
@@ -124,7 +140,7 @@ module objects {
             }
             else if (random < 3) {
                 x = x + 5;
-                y = y + 40;
+                y = y + 80;
             }
 
             this._bullets[this._bulletCounter].x = x;

@@ -76,7 +76,7 @@ module scenes {
     // PUBLIC METHODS
     public Start(): void {
 
-      this._levelEnemyCount = 20;
+      this._levelEnemyCount = 3;
 
       this._playerEnemyKill = 0;
       this._currentLevel = 1;
@@ -284,8 +284,10 @@ module scenes {
     }
 
     private endTicker(): void {
-      this.removeChild(this._tickerLabel);
-      this._tickerLabel = null;
+      if (this._tickerLabel != null) {
+        this.removeChild(this._tickerLabel);
+        this._tickerLabel = null;
+      }
       this._powerUpTimer = 10;
       if (this._hasShield) this._hasShield = false;
       if (this.hasSinGun) {
@@ -340,6 +342,10 @@ module scenes {
               this.updateLives(-1);
               this.createExplosion(this._plane.x, this._plane.y);
               this.createExplosion(other.x, other.y);
+            }
+
+            if(this.hasSinGun){
+              this.endTicker();
             }
 
             if (this._lives <= 0) {
@@ -406,7 +412,7 @@ module scenes {
           this.addChildAt(this._bg, index);
 
           this._boss = new objects.Boss(this._textureAtlas, this);
-          this.addChildAt(this._boss, this.getChildIndex(this._livesLabel) - 1);
+          this.addChildAt(this._boss, this.getChildIndex(this._livesPower) - 1);
 
           this.bossHealth = new createjs.Shape();
           this.bossHealth.graphics.beginFill("#FF4136");

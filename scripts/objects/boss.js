@@ -19,6 +19,7 @@ var objects;
             _this._textureAtlas = textureAtlas;
             _this._playScript = playerScript;
             _this.i = Math.random() * -20;
+            _this._showBoss = false;
             _this.Start();
             return _this;
         }
@@ -52,6 +53,7 @@ var objects;
             this._bulletSpawn = new createjs.Point(this.x, this.y);
             this._frameDelay = (Math.random()) + 45;
             this._curFrames = 0;
+            this._bossdelay = 0;
         };
         Boss.prototype._updatePosition = function () {
             this.x = -Math.sin(this.i) * 80 + 250; // * PHASE + OFFSET
@@ -62,16 +64,22 @@ var objects;
         };
         Boss.prototype.Update = function () {
             if (this._playScript._currentLevel == 3) {
-                this._updatePosition();
-                this._checkBounds();
-                this._curFrames++;
-                if (this._curFrames >= this._frameDelay) {
-                    this.bulletFire(this.x, this.y);
-                    this._curFrames = 0;
+                this._bossdelay++;
+                if (this._bossdelay > 100) {
+                    this._showBoss = true;
                 }
-                this._bullets.forEach(function (bullet) {
-                    bullet.Update();
-                });
+                if (this._showBoss) {
+                    this._updatePosition();
+                    this._checkBounds();
+                    this._curFrames++;
+                    if (this._curFrames >= this._frameDelay) {
+                        this.bulletFire(this.x, this.y);
+                        this._curFrames = 0;
+                    }
+                    this._bullets.forEach(function (bullet) {
+                        bullet.Update();
+                    });
+                }
             }
         };
         /**
@@ -97,7 +105,7 @@ var objects;
             }
             else if (random < 3) {
                 x = x + 5;
-                y = y + 40;
+                y = y + 80;
             }
             this._bullets[this._bulletCounter].x = x;
             this._bullets[this._bulletCounter].y = y;

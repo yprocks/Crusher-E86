@@ -4,10 +4,10 @@ module scenes {
     private _assetManager:createjs.LoadQueue;
     private _textureAtlas:createjs.SpriteSheet;
 
-    private _gameWonLabel:objects.Label;
+    private _youWonLabel:objects.Label;
     private _restartButton:objects.Button;
     private _menu: objects.Button;
-
+    
     private _bg: objects.Background;
 
     // PUBLIC PROPERTIES
@@ -24,8 +24,9 @@ module scenes {
 
     // PUBLIC METHODS
     public Start():void {
-      this._gameWonLabel = new objects.Label("You Won", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
-      this._restartButton = new objects.Button(this._textureAtlas, "restartButton", 250, 400, true);
+      this._youWonLabel = new objects.Label("You Won", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
+      this._restartButton = new objects.Button(this._textureAtlas, "restartButton", 250, 340, true);
+      this._menu = new objects.Button(this._textureAtlas, "menu", 250, 400, true);
       this._bg = new objects.Background(this._assetManager, "bg1");
       this.Main();
     }
@@ -38,8 +39,8 @@ module scenes {
     public Main():void {
 
       this.addChild(this._bg);
-
-      this.addChild(this._gameWonLabel);
+    
+      this.addChild(this._youWonLabel);
 
       this.addChild(this._restartButton);
       this.addChild(this._menu);

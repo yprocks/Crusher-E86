@@ -25,8 +25,9 @@ var scenes;
         // PRIVATE METHODS
         // PUBLIC METHODS
         Won.prototype.Start = function () {
-            this._gameWonLabel = new objects.Label("You Won", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
-            this._restartButton = new objects.Button(this._textureAtlas, "restartButton", 250, 400, true);
+            this._youWonLabel = new objects.Label("You Won", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
+            this._restartButton = new objects.Button(this._textureAtlas, "restartButton", 250, 340, true);
+            this._menu = new objects.Button(this._textureAtlas, "menu", 250, 400, true);
             this._bg = new objects.Background(this._assetManager, "bg1");
             this.Main();
         };
@@ -37,7 +38,7 @@ var scenes;
         Won.prototype.Main = function () {
             var _this = this;
             this.addChild(this._bg);
-            this.addChild(this._gameWonLabel);
+            this.addChild(this._youWonLabel);
             this.addChild(this._restartButton);
             this.addChild(this._menu);
             this._restartButton.on("click", function () {
