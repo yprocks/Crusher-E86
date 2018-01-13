@@ -110,7 +110,7 @@ module objects {
           boss.destroy();
           this._playScript.updateEnemyCount(1);
           this._playScript.createExplosion(x, y);
-          this._playScript.updateEnemyCount(1);
+          // this._playScript.updateEnemyCount(1);
         }
         this._reset();
       }

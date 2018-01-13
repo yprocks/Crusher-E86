@@ -25,14 +25,13 @@ var scenes;
         // PRIVATE METHODS
         // PUBLIC METHODS
         Won.prototype.Start = function () {
-            this._youWonLabel = new objects.Label("You Won", "60px", "orecrusher3d", "#FFFF00", 250, 260, true);
+            this._youWonLabel = new objects.Label("You Won", "60px", "Audiowide", "#FFFF00", 250, 260, true);
             this._restartButton = new objects.Button(this._textureAtlas, "restartButton", 250, 340, true);
             this._menu = new objects.Button(this._textureAtlas, "menu", 250, 400, true);
-            this._bg = new objects.Background(this._assetManager, "bg1");
+            this._bg = new createjs.Bitmap("../../assets/images/image2.png");
             this.Main();
         };
         Won.prototype.Update = function () {
-            this._bg.Update();
             return this._currentScene;
         };
         Won.prototype.Main = function () {

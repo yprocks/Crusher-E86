@@ -22,7 +22,6 @@ var objects;
             _this.Start();
             return _this;
         }
-        // PRIVATE METHODS
         Enemy.prototype._reset = function () {
             this.i = Math.random() * -20;
             this.y = -this.height;
@@ -88,11 +87,16 @@ var objects;
         Enemy.prototype.bulletFire = function () {
             this._bullets[this._bulletCounter].x = this._bulletSpawn.x;
             this._bullets[this._bulletCounter].y = this._bulletSpawn.y;
-            var instance = createjs.Sound.play("laser");
-            instance.volume = 0.5;
             this._bulletCounter++;
             if (this._bulletCounter >= this._bulletNum - 1) {
                 this._bulletCounter = 0;
+            }
+            var instance = createjs.Sound.play("laser");
+            instance.volume = 0.5;
+        };
+        Enemy.prototype._resetBullets = function () {
+            for (var count = 0; count < this._bulletNum; count++) {
+                this._bullets[count]._reset();
             }
         };
         Enemy.prototype._checkCollisionWithin = function (enemies) {

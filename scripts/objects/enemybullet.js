@@ -20,7 +20,6 @@ var objects;
             _this.Start();
             return _this;
         }
-        // PRIVATE METHODS
         EnemyBullet.prototype._reset = function () {
             this.y = -1000;
             this.x = -1000;

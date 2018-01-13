@@ -109,7 +109,7 @@ var objects;
             }
             this._bullets[this._bulletCounter].x = x;
             this._bullets[this._bulletCounter].y = y;
-            var instance = createjs.Sound.play("laser");
+            var instance = createjs.Sound.play("enemylaser");
             instance.volume = 0.5;
             this._bulletCounter++;
             if (this._bulletCounter >= this._bulletNum - 1) {

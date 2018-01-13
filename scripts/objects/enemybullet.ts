@@ -12,8 +12,7 @@ module objects {
       this.Start();
     }
     
-    // PRIVATE METHODS
-    private _reset(): void {
+    public _reset(): void {
       this.y = -1000;
       this.x = -1000;
     }

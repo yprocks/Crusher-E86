@@ -81,7 +81,7 @@ module scenes {
       this._playerEnemyKill = 0;
       this._currentLevel = 1;
 
-      this.totalBossKill = 20;
+      this.totalBossKill = 50;
       this.bossHit = 0;
 
       this._tickerLabel = null;
@@ -124,9 +124,9 @@ module scenes {
       this._frameDelay = (Math.random() * 100) + 480;
       this._curFrame = 0;
 
-      this._livesLabel = new objects.Label("Lives: " + this._lives, "26px", "orecrusher3d", "#FFFF00", 10, 10, false);
-      this._scoreLabel = new objects.Label("Score: " + this._score, "26px", "orecrusher3d", "#FFFF00", 300, 10, false);
-      this._levelLabel = new objects.Label("Level: " + this._currentLevel, "20px", "orecrusher3d", "#FFFF00", 10, 40, false);
+      this._livesLabel = new objects.Label("Lives: " + this._lives, "26px", "Audiowide", "#FFFF00", 10, 10, false);
+      this._scoreLabel = new objects.Label("Score: " + this._score, "26px", "Audiowide", "#FFFF00", 310, 10, false);
+      this._levelLabel = new objects.Label("Level: " + this._currentLevel, "20px", "Audiowide", "#FFFF00", 10, 40, false);
 
       this._boss = new objects.Boss(this._textureAtlas, this);
 
@@ -269,7 +269,7 @@ module scenes {
     }
 
     private startTicker(): void {
-      this._tickerLabel = new objects.Label("Time: " + this._powerUpTimer, "26px", "orecrusher3d", "#FFFF00", 160, 10, false);
+      this._tickerLabel = new objects.Label("Time: " + this._powerUpTimer, "26px", "Audiowide", "#FFFF00", 160, 10, false);
       this.addChild(this._tickerLabel);
     }
 
@@ -395,13 +395,24 @@ module scenes {
         this._levelLabel.text = "Level: " + this._currentLevel;
         this._playerEnemyKill = 0;
         if (this._currentLevel == 2) {
+          var instance = createjs.Sound.play("buzzer");
+          instance.volume = 0.5;
+          
           this._canSpawnPowerUps = true;
+
+          for (let count = 0; count < this._enemyNum; count++) {
+            this._enemies[count]._resetBullets();
+            this._enemies[count]._reset();
+          }
+
           var index = this.getChildIndex(this._bg);
           this.removeChild(this._bg);
           this._bg = new objects.Background(this._assetManager, "bg2");
           this.addChildAt(this._bg, index);
         }
         else if (this._currentLevel == 3) {
+          var instance = createjs.Sound.play("buzzer");
+          instance.volume = 0.5;
           var index = this.getChildIndex(this._bg);
           this.removeChild(this._bg);
           for (let count = 0; count < this._enemyNum; count++) {
@@ -449,7 +460,7 @@ module scenes {
     }
 
     public loseHealth(): void {
-      this.healthBar -= 25;
+      this.healthBar -= 10;
       this.bossHealth.graphics.clear();
       this.bossHealth.graphics.beginFill("#FF4136");
       this.bossHealth.graphics.drawRect(0, 0, this.healthBar, 20);

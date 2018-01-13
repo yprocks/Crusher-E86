@@ -25,8 +25,7 @@ module objects {
       this.Start();
     }
 
-    // PRIVATE METHODS
-    private _reset(): void {
+    public _reset(): void {
       this.i = Math.random() * - 20;
 
       this.y = -this.height;
@@ -113,15 +112,20 @@ module objects {
 
       this._bullets[this._bulletCounter].x = this._bulletSpawn.x;
       this._bullets[this._bulletCounter].y = this._bulletSpawn.y;
-
-      var instance = createjs.Sound.play("laser");
-      instance.volume = 0.5;
-
       this._bulletCounter++;
       if (this._bulletCounter >= this._bulletNum - 1) {
         this._bulletCounter = 0;
       }
 
+      var instance = createjs.Sound.play("laser");
+      instance.volume = 0.5;
+
+    }
+
+    public _resetBullets(): void {
+      for (let count = 0; count < this._bulletNum; count++) {
+        this._bullets[count]._reset();
+      }
     }
 
     public _checkCollisionWithin(enemies: objects.Enemy[]) {

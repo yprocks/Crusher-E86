@@ -4,13 +4,15 @@
   let canvas: any;
   let assetManager: createjs.LoadQueue;
   let assetManifest = [
-    { id: "bg1", src: "../../assets/greenbg.png" },
-    { id: "bg2", src: "../../assets/bluebg.png" },
-    { id: "bg3", src: "../../assets/redbg.png" },
+    { id: "bg1", src: "../../assets/images/greenbg.png" },
+    { id: "bg2", src: "../../assets/images/bluebg.png" },
+    { id: "bg3", src: "../../assets/images/redbg.png" },
     { id: "music", src: "../../assets/audio/gameMusic.mp3" },
     { id: "explosion", src: "../../assets/audio/explosion.wav" },
     { id: "laser", src: "../../assets/audio/laser.mp3" },
-    { id: "jet", src: "../../assets/ship.png" }    
+    { id: "enemylaser", src: "../../assets/audio/enemylaser.mp3"},
+    { id: "buzzer", src: "../../assets/audio/buzzer.wav"},
+    { id: "jet", src: "../../assets/images/ship.png" }    
   ];
 
   let textureAtlasData = {
