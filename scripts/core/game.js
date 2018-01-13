@@ -2,6 +2,7 @@
 (function () {
     var stage;
     var canvas;
+    var loader;
     var assetManager;
     var assetManifest = [
         { id: "bg1", src: "../../assets/images/greenbg.png" },
@@ -71,17 +72,17 @@
     var currentScene;
     var currentState;
     function Init() {
+        loader = document.getElementById("loader");
         assetManager = new createjs.LoadQueue();
         assetManager.installPlugin(createjs.Sound);
-        alert(1);
         assetManager.on("complete", Start);
-        alert(2);
         assetManager.loadManifest(assetManifest);
         textureAtlas = new createjs.SpriteSheet(textureAtlasData);
     }
     function Start() {
-        alert(3);
+        loader.style.display = "none";
         canvas = document.getElementById(Strings.CANVAS_NAME);
+        canvas.style.display = "block";
         stage = new createjs.Stage(canvas);
         stage.enableMouseOver(20);
         createjs.Ticker.framerate = 60;
