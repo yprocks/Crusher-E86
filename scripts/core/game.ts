@@ -80,13 +80,16 @@
   function Init() {
     assetManager = new createjs.LoadQueue();
     assetManager.installPlugin(createjs.Sound);
+    alert(1);
     assetManager.on("complete", Start);
+    alert(2);
     assetManager.loadManifest(assetManifest);
 
     textureAtlas = new createjs.SpriteSheet(textureAtlasData);
   }
 
   function Start() {
+    alert(3);
     canvas = document.getElementById(Strings.CANVAS_NAME);
     stage = new createjs.Stage(canvas);
     stage.enableMouseOver(20);

@@ -4,7 +4,7 @@ module scenes {
     private _assetManager:createjs.LoadQueue;
     private _textureAtlas:createjs.SpriteSheet;
 
-    private _welcomeLabel:objects.Label;
+    private _gameLabel:objects.Label;
     private _startButton:objects.Button;
     private _manual:objects.Button;
     private _bg: createjs.Bitmap;
@@ -23,7 +23,7 @@ module scenes {
 
     // PUBLIC METHODS
     public Start():void {
-      this._welcomeLabel = new objects.Label("Crusher E86", "60px", "Audiowide", "#FFFF00", 250, 260, true);
+      this._gameLabel = new objects.Label("Crusher E86", "60px", "Audiowide", "#FFFF00", 250, 260, true);
       this._startButton = new objects.Button(this._textureAtlas, "startButton", 250, 340, true);
       this._manual = new objects.Button(this._textureAtlas, "manual", 250, 400, true);
       this._bg = new createjs.Bitmap("../../assets/images/image1.png");
@@ -36,7 +36,7 @@ module scenes {
 
     public Main():void {
       this.addChild(this._bg);
-      this.addChild(this._welcomeLabel);
+      this.addChild(this._gameLabel);
 
       this.addChild(this._startButton);
       this.addChild(this._manual);

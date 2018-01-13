@@ -25,7 +25,7 @@ var scenes;
         // PRIVATE METHODS
         // PUBLIC METHODS
         Start.prototype.Start = function () {
-            this._welcomeLabel = new objects.Label("Crusher E86", "60px", "Audiowide", "#FFFF00", 250, 260, true);
+            this._gameLabel = new objects.Label("Crusher E86", "60px", "Audiowide", "#FFFF00", 250, 260, true);
             this._startButton = new objects.Button(this._textureAtlas, "startButton", 250, 340, true);
             this._manual = new objects.Button(this._textureAtlas, "manual", 250, 400, true);
             this._bg = new createjs.Bitmap("../../assets/images/image1.png");
@@ -37,7 +37,7 @@ var scenes;
         Start.prototype.Main = function () {
             var _this = this;
             this.addChild(this._bg);
-            this.addChild(this._welcomeLabel);
+            this.addChild(this._gameLabel);
             this.addChild(this._startButton);
             this.addChild(this._manual);
             this._startButton.on("click", function () {
