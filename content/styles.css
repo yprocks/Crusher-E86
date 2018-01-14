@@ -1,11 +1,12 @@
 @font-face {
     font-family: 'Protos';
-    src: url('../assets/fonts/Protos.woff') format(woff);
+    src: url('../../assets/fonts/Protos.woff');
     font-weight: normal;
     font-style: normal;
 }
 
 body {
+    font-family: "Protos";
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
