@@ -21,7 +21,7 @@ var objects;
         }
         // PRIVATE METHODS
         Background.prototype._reset = function () {
-            this.y = -620;
+            this.y = -1240;
         };
         Background.prototype._checkBounds = function () {
             if (this.y >= 0) {

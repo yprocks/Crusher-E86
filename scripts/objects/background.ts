@@ -12,7 +12,7 @@ module objects {
 
     // PRIVATE METHODS
     private _reset(): void {
-      this.y = -620;
+      this.y = -1240;
     }
 
     private _checkBounds(): void {
