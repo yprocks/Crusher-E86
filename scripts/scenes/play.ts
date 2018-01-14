@@ -312,7 +312,6 @@ module scenes {
           //   var instance = createjs.Sound.play("explosion");
           //   instance.volume = 0.5;
           // }
-          console.log(other.name);
 
           if (other.name == "life") {
             var life = other as objects.Lives;

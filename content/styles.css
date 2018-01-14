@@ -1,9 +1,9 @@
-/* @font-face {
-    font-family: 'Audiowide';
-    src: url('https://fonts.googleapis.com/css?family=Audiowide');
+@font-face {
+    font-family: 'Protos';
+    src: url('../assets/fonts/BroshK.otf') format(woff);
     font-weight: normal;
     font-style: normal;
-} */
+}
 
 body {
     display: -webkit-box;
