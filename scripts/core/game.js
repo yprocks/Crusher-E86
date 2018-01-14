@@ -8,6 +8,7 @@
         { id: "bg1", src: "../../assets/images/greenbg.png" },
         { id: "bg2", src: "../../assets/images/bluebg.png" },
         { id: "bg3", src: "../../assets/images/redbg.png" },
+        { id: "bg4", src: "../../assets/images/spacebg.png" },
         { id: "music", src: "../../assets/audio/gameMusic.mp3" },
         { id: "explosion", src: "../../assets/audio/explosion.wav" },
         { id: "laser", src: "../../assets/audio/laser.mp3" },

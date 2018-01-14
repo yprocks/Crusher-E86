@@ -7,7 +7,7 @@ module objects {
       // PUBLIC PROPERTIES
   
       // CONSTRUCTORS
-      public constructor(textureAtlas: createjs.SpriteSheet, playScript: scenes.Play) {
+      public constructor(textureAtlas: createjs.SpriteSheet, playScript?: scenes.Play) {
         super(textureAtlas, "life");
         this._playScript = playScript;
         this.Start();
@@ -49,6 +49,13 @@ module objects {
       public destroy(): void {
         this._reset();
         this._playScript.removePowerUps();
+      }
+
+      public display(x: number, y: number): void{
+        this.x = x;
+        this.y = y;
+        this.position.x = this.x;
+        this.position.y = this.y;
       }
    }
 }

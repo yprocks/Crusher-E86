@@ -51,6 +51,12 @@ var objects;
             this._reset();
             this._playScript.removePowerUps();
         };
+        Shield.prototype.display = function (x, y) {
+            this.x = x;
+            this.y = y;
+            this.position.x = this.x;
+            this.position.y = this.y;
+        };
         return Shield;
     }(objects.Powerups));
     objects.Shield = Shield;

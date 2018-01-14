@@ -52,6 +52,12 @@ var objects;
             this._reset();
             this._playScript.removePowerUps();
         };
+        Lives.prototype.display = function (x, y) {
+            this.x = x;
+            this.y = y;
+            this.position.x = this.x;
+            this.position.y = this.y;
+        };
         return Lives;
     }(objects.Powerups));
     objects.Lives = Lives;

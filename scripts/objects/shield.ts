@@ -6,7 +6,7 @@ module objects {
     public _startMoving: boolean;
 
     // CONSTRUCTORS
-    public constructor(textureAtlas: createjs.SpriteSheet, playScript: scenes.Play) {
+    public constructor(textureAtlas: createjs.SpriteSheet, playScript?: scenes.Play) {
       super(textureAtlas, "shield");
       this._playScript = playScript;
       this.Start();
@@ -51,6 +51,12 @@ module objects {
       this._playScript.removePowerUps();
     }
       
+    public display(x: number, y: number): void{
+      this.x = x;
+      this.y = y;
+      this.position.x = this.x;
+      this.position.y = this.y;
+    }
         
     }
 }
