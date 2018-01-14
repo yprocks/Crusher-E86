@@ -37,6 +37,10 @@ var objects;
             this.y += this._verticalSpeed;
             this._checkBounds();
         };
+        Background.prototype.staticBg = function () {
+            this.y = 0;
+            this.x = 0;
+        };
         return Background;
     }(createjs.Bitmap));
     objects.Background = Background;

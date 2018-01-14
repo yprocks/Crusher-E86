@@ -28,7 +28,8 @@ var scenes;
             this._youWonLabel = new objects.Label("You Won", "60px", "Audiowide", "#FFFF00", 110, 240, false);
             this._restartButton = new objects.Button(this._textureAtlas, "restartButton", 250, 340, true);
             this._menu = new objects.Button(this._textureAtlas, "menu", 250, 400, true);
-            this._bg = new createjs.Bitmap("../../assets/images/image2.png");
+            this._bg = new objects.Background(this._assetManager, "end");
+            this._bg.staticBg();
             this.Main();
         };
         Won.prototype.Update = function () {

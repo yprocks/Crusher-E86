@@ -27,7 +27,8 @@ var scenes;
         Instructions.prototype.Start = function () {
             this._welcomeLabel = new objects.Label("Crusher E86", "60px", "Audiowide", "#FFFF00", 250, 50, true);
             this._menu = new objects.Button(this._textureAtlas, "menu", 250, 580, true);
-            this._bg = new createjs.Bitmap("../../assets/images/image3.png");
+            this._bg = new objects.Background(this._assetManager, "instructions");
+            this._bg.staticBg();
             this._instructions1Mouse = new objects.Label("Move Mouse to move left and right", "20px", "Audiowide", "#FFFF00", 60, 100, false);
             this._instructions2Mouse = new objects.Label("Shoot with Mouse 1 (Fire 1) ", "20px", "Audiowide", "#FFFF00", 120, 150, false);
             this._instructions1Level = new objects.Label("Kill 20 Enemies to advance to next level", "20px", "Audiowide", "#FFFF00", 30, 200, false);

@@ -8,7 +8,7 @@ module scenes {
     private _restartButton:objects.Button;
     private _menu: objects.Button;
     
-    private _bg: createjs.Bitmap;
+    private _bg: objects.Background;
 
     // PUBLIC PROPERTIES
 
@@ -27,7 +27,8 @@ module scenes {
       this._gameOverLabel = new objects.Label("Game Over", "60px", "Audiowide", "#FFFF00", 70, 240, false);
       this._restartButton = new objects.Button(this._textureAtlas, "restartButton", 250, 340, true);
       this._menu = new objects.Button(this._textureAtlas, "menu", 250, 400, true);
-      this._bg = new createjs.Bitmap("../../assets/images/image2.png");
+      this._bg = new objects.Background(this._assetManager, "end");
+      this._bg.staticBg();
       this.Main();
     }
 

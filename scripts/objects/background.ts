@@ -32,6 +32,9 @@ module objects {
       this._checkBounds();
     }
 
-    
+    public staticBg(): void {
+      this.y = 0;
+      this.x = 0;
+    }
   }
 }

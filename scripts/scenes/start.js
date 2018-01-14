@@ -28,7 +28,8 @@ var scenes;
             this._gameLabel = new objects.Label("Crusher E86", "60px", "Audiowide", "#FFFF00", 40, 240, false);
             this._startButton = new objects.Button(this._textureAtlas, "startButton", 250, 340, true);
             this._manual = new objects.Button(this._textureAtlas, "manual", 250, 400, true);
-            this._bg = new createjs.Bitmap("../../assets/images/image1.png");
+            this._bg = new objects.Background(this._assetManager, "start");
+            this._bg.staticBg();
             this.Main();
         };
         Start.prototype.Update = function () {
