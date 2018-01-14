@@ -47,7 +47,7 @@ module scenes {
 
     // PUBLIC METHODS
     public Start():void {
-      this._welcomeLabel = new objects.Label("Crusher E86", "60px", "Protos", "#FFFF00", 250, 50, true);
+      this._welcomeLabel = new objects.Label("Crusher E86", "60px", "Audiowide", "#FFFF00", 250, 50, true);
       this._menu = new objects.Button(this._textureAtlas, "menu", 250, 580, true);
       this._bg = new createjs.Bitmap("../../assets/images/image3.png");
       this._instructions1Mouse = new objects.Label("Move Mouse to move left and right", "20px", "Audiowide", "#FFFF00", 60, 100, false);
