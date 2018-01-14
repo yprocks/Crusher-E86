@@ -25,7 +25,7 @@ var scenes;
         // PRIVATE METHODS
         // PUBLIC METHODS
         Won.prototype.Start = function () {
-            this._youWonLabel = new objects.Label("You Won", "60px", "Audiowide", "#FFFF00", 250, 260, true);
+            this._youWonLabel = new objects.Label("You Won", "60px", "Protos", "#FFFF00", 90, 240, false);
             this._restartButton = new objects.Button(this._textureAtlas, "restartButton", 250, 340, true);
             this._menu = new objects.Button(this._textureAtlas, "menu", 250, 400, true);
             this._bg = new createjs.Bitmap("../../assets/images/image2.png");

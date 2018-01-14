@@ -25,15 +25,15 @@ var scenes;
         // PRIVATE METHODS
         // PUBLIC METHODS
         Instructions.prototype.Start = function () {
-            this._welcomeLabel = new objects.Label("Crusher E86", "60px", "Audiowide", "#FFFF00", 250, 30, true);
+            this._welcomeLabel = new objects.Label("Crusher E86", "60px", "Protos", "#FFFF00", 250, 50, true);
             this._menu = new objects.Button(this._textureAtlas, "menu", 250, 580, true);
             this._bg = new createjs.Bitmap("../../assets/images/image3.png");
-            this._instructions1Mouse = new objects.Label("Move Mouse to move left and right", "20px", "Audiowide", "#FFFF00", 250, 100, true);
-            this._instructions2Mouse = new objects.Label("Shoot with Mouse 1 (Fire 1) ", "20px", "Audiowide", "#FFFF00", 250, 150, true);
-            this._instructions1Level = new objects.Label("Kill 20 Enemies to advance to next level", "20px", "Audiowide", "#FFFF00", 250, 200, true);
-            this._instructions2Level = new objects.Label("Power ups available from Level 2", "20px", "Audiowide", "#FFFF00", 250, 250, true);
-            this._instructionsBoss = new objects.Label("Kill Boss at level 3 to win the game", "20px", "Audiowide", "#FFFF00", 250, 300, true);
-            this._instructionsPowerUps = new objects.Label("Power ups", "20px", "Audiowide", "#FFFF00", 250, 350, true);
+            this._instructions1Mouse = new objects.Label("Move Mouse to move left and right", "20px", "Audiowide", "#FFFF00", 60, 100, false);
+            this._instructions2Mouse = new objects.Label("Shoot with Mouse 1 (Fire 1) ", "20px", "Audiowide", "#FFFF00", 120, 150, false);
+            this._instructions1Level = new objects.Label("Kill 20 Enemies to advance to next level", "20px", "Audiowide", "#FFFF00", 30, 200, false);
+            this._instructions2Level = new objects.Label("Power ups available from Level 2", "20px", "Audiowide", "#FFFF00", 70, 250, false);
+            this._instructionsBoss = new objects.Label("Kill Boss at level 3 to win the game", "20px", "Audiowide", "#FFFF00", 60, 300, false);
+            this._instructionsPowerUps = new objects.Label("Power ups", "20px", "Audiowide", "#FFFF00", 190, 350, false);
             this._sinGun = new objects.SinGun(this._textureAtlas);
             this._sinGun.display(100, 430);
             this._sinGunLabel = new objects.Label("SinGun", "20px", "Audiowide", "#FFFF00", 60, 480, false);

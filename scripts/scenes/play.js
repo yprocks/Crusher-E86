@@ -60,9 +60,9 @@ var scenes;
             this._score = 0;
             this._frameDelay = (Math.random() * 100) + 480;
             this._curFrame = 0;
-            this._livesLabel = new objects.Label("Lives: " + this._lives, "26px", "Audiowide", "#FFFF00", 10, 10, false);
-            this._scoreLabel = new objects.Label("Score: " + this._score, "26px", "Audiowide", "#FFFF00", 310, 10, false);
-            this._levelLabel = new objects.Label("Level: " + this._currentLevel, "20px", "Audiowide", "#FFFF00", 10, 40, false);
+            this._livesLabel = new objects.Label("Lives: " + this._lives, "26px", "Protos", "#FFFF00", 10, 10, false);
+            this._scoreLabel = new objects.Label("Score: " + this._score, "26px", "Protos", "#FFFF00", 300, 10, false);
+            this._levelLabel = new objects.Label("Level: " + this._currentLevel, "20px", "Protos", "#FFFF00", 10, 40, false);
             this._boss = new objects.Boss(this._textureAtlas, this);
             this._canSpawnPowerUps = true;
             this.Main();
@@ -175,7 +175,7 @@ var scenes;
                 this._explosionCounter = 0;
         };
         Play.prototype.startTicker = function () {
-            this._tickerLabel = new objects.Label("Time: " + this._powerUpTimer, "26px", "Audiowide", "#FFFF00", 160, 10, false);
+            this._tickerLabel = new objects.Label("Time: " + this._powerUpTimer, "26px", "Protos", "#FFFF00", 160, 10, false);
             this.addChild(this._tickerLabel);
         };
         Play.prototype.updateTicker = function (seconds) {
@@ -288,7 +288,7 @@ var scenes;
                 this._playerEnemyKill = 0;
                 if (this._currentLevel == 2) {
                     var instance = createjs.Sound.play("buzzer");
-                    instance.volume = 0.5;
+                    instance.volume = 1;
                     this._canSpawnPowerUps = true;
                     for (var count = 0; count < this._enemyNum; count++) {
                         this._enemies[count]._resetBullets();

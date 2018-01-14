@@ -25,7 +25,7 @@ var scenes;
         // PRIVATE METHODS
         // PUBLIC METHODS
         Start.prototype.Start = function () {
-            this._gameLabel = new objects.Label("Crusher E86", "80px", "Protos", "#FFFF00", 280, 240, true);
+            this._gameLabel = new objects.Label("Crusher E86", "55px", "Protos", "#FFFF00", 30, 240, false);
             this._startButton = new objects.Button(this._textureAtlas, "startButton", 250, 340, true);
             this._manual = new objects.Button(this._textureAtlas, "manual", 250, 400, true);
             this._bg = new createjs.Bitmap("../../assets/images/image1.png");
